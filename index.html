@@ -1,71 +1,506 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Visualization of Global Climate Hazards by City</title>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="https://d3js.org/d3-geo.v2.min.js"></script>
-    <script src="https://unpkg.com/topojson@3"></script>
-    <style>
-      #text {
-        padding: 10px;
-      }
-    </style>
+    <meta charset="UTF-8">
+    <title>Alwin Hui</title>
+    <meta name="Description" content="Alwin Hui -- climate tech investor, serial entrepreneur, lifelong learner.">
+    <meta name="Keywords" content="technology, climate, climate tech, venture capital, entrepreneurship, green tech, clean tech, climatetech, greentech, cleantech, climate tech investing, climatetech investing, greentech investing, green tech investing, clean tech investing, cleantech investing,">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Alwin Hui" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="www.alwinhui.com" />
+    <meta property="og:image" content="http://alwinhui.com/img1.jpg" />
+    <meta property="og:description" content="Alwin Hui -- climate tech investor, serial entrepreneur, lifelong learner."/>
+    
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alwin Hui -- climate tech investor, serial entrepreneur, lifelong learner.">
+    <meta name="twitter:description" content="Alwin Hui -- climate tech investor, serial entrepreneur, lifelong learner.">
+    <meta name="twitter:image" content="http://alwinhui.com/img1.jpg">
+
+    <meta name="theme-color" content="#2c2f43">
+
+    <meta name="google-site-verification" content="R7TTyRPxdI76N3kvAKhkL47rFf3vnHvgXSkCvOUAr7I" />
+    
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- Google Analytics script -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-87178472-4', 'auto');
+      ga('send', 'pageview');
+    </script>
   </head>
+  <body class="is-preload">
 
-  <header class="post-info single-post-header">
-    <h1>What Global Cities Are Most At Risk of Climate Hazards?</h1>
-    <h2>Cities will face significant risk of climate hazards, if they haven't already. What trends can we see from the data?</h2>
-    <p>By Alwin Hui</p>  
-  </header>
+    <!-- Header -->
+      <header id="header">
+        <div class="inner">
+          <a href="#" class="image avatar"><img src="images/GSBphoto.png" alt="" /></a>
+          <h1><strong>I am Alwin Hui</strong>, a climate tech<br />
+          investor, <a href="https://technical.ly/baltimore/2015/04/28/jhu-students-startup-wants-make-sure-doctors-analyze-cancer-biopsies-right-every-time/">a serial entrepreneur</a>,<br />
+          and <a href="https://www.golfdigest.com/story/this-janet-jackson-whiff-might-be-the-worst-response-in-jeopardy-history">the viral star of the "Worst<br /> Response in Game Show History"</a>.</h1>
+        </div>
+      </header>
 
-  <body>
-    <div id="first">
-      <div id="photo">
-        <a href="magnitude.html">
-          <img src="magnitude.png" alt="Magnitude Data Visualization" style="width:1250px;">
-        </a>
-      </div>
-      <div id="text">
-        <p>Of the 100 cities in the C40 Cities Climate Leadership Group, 60 of them are currently facing a climate hazard with a magnitude level of "High", with another 17 and 5 facing ones of "Medium High" and "Medium", respectively. That means fewer than 20% of these cities are not already currently facing a climate hazard with significant magnitude.</p>
-        <p>Geographically, we can see there is largely no correlation between geography and magnitude of their climate hazard, as cities around the world in different latitudes and longitudes all face "High" magnitude climate hazards. However, most of the cities facing "High" and "Medium High" magnitude climate hazards are located near coastlines, which makes sense given the impact of sea levels on many different climate hazards (flooding, hurricanes, water stress, etc.). However, given most major cities are located near coastlines, there is not a big enough sample size of non-coastline cities for a conclusive comparative analysis.</p>
-        <p>Correlations do exist between geography and type of climate hazards as well, which we observe when we filter certain climate hazards. For example, we see heavy precipitation will be a more dangerous climate hazard primarily in Europe and the Americas, with it being a relatively less dangerous hazard in Asia. Similarly, river flooding will be a more dangerous climate hazard primarily in Europe and the East Coast of the Americas, with most of Africa and Asia being unaffected.</p>
-      </div>
-    </div>
+    <!-- Main -->
+      <div id="main">
 
-    <div id="second">
-      <div id="photo">
-        <a href="probability.html">
-          <img src="probability.png" alt="Probability Data Visualization" style="width:1250px;">
-        </a>
-      </div>
-      <div id="text">
-        <p>We now turn our attention to the probability of these climate hazards. Of the 100 cities, 64 of them are currently facing a climate hazard with a probability level of "High", with another 12 and 3 facing ones of "Medium High" and "Medium", respectively. That means fewer than 25% of these cities are not already currently facing a climate hazard with a significant probability.</p>
-        <p>Geographically, we can see there is largely no correlation between geography and magnitude of their climate hazard, as cities around the world in different latitudes and longitudes all face "High" magnitude climate hazards. However, most of the cities facing "High" and "Medium High" magnitude climate hazards are located near coastlines, which makes sense given the impact of sea levels on many different climate hazards (flooding, hurricanes, water stress, etc.). However, given most major cities are located near coastlines, there is not a big enough sample size of non-coastline cities for a conclusive comparative analysis.</p>
-        <p>Correlations do exist between geography and type of climate hazards as well, which we observe when we filter certain climate hazards. For example, we see heavy precipitation will be a more dangerous climate hazard primarily in Europe and the Americas, with it being a relatively less dangerous hazard in Asia. Similarly, river flooding will be a more dangerous climate hazard primarily in Europe and the East Coast of the Americas, with most of Africa and Asia being unaffected.</p>
-      </div>
-    </div>
+        <!-- One -->
+          <section id="one">
+            <header class="major">
+              <h3>I see climate as the next big frontier that will drive innovation in a wide berth of industries from <a href=https://techcrunch.com/2021/10/28/climate-accounting-platform-persefoni-raises-101m-series-b-led-by-prelude-and-tpg/?utm_source=newsletter&utm_medium=email&utm_campaign=newsletter_axiosgenerate&stream=top">fintech</a> to <a href="https://news.crunchbase.com/news/ev-investment-tesla-ford-sony-honda/">mobility</a> to <a href="https://techcrunch.com/2021/06/28/breezometer-the-iphone-tool-that-measures-air-quality-raises-a-30m-series-c/">healthcare</a>. I'm excited to help existing industry leaders and top-tier traditional venture capital firms apply their comprehensive resources to one of the fastest growing and most promising startup sectors of the next decade.</h3>
+            </header>
+            <p>For the past couple years, I've been advising multiple venture capital funds on creating and/or building out their climate portfolio, often from the ground up. This includes serving on investment committees sourcing, analyzing, and conducting due diligence on 250+ climate startups, advising seed and Series A portfolio companies in climate, and building out the first-ever climate thesis and strategy for an international $300+ AUM fund.<br /><br />
+              Previously, I co-founded and built two startups in the biotech space, developing <a href="https://technical.ly/baltimore/2015/04/28/jhu-students-startup-wants-make-sure-doctors-analyze-cancer-biopsies-right-every-time/">AI-based cloud platforms</a> and <a href="https://hub.jhu.edu/2016/11/07/cryotherapy-breast-cancer-invention-wins-third/">medical devices</a> for diagnosing and treating cancer. I also co-led the Global Aviation Practice at Deloitte Consulting, managing the future strategy for 170+ airline clients across 30+ countries worldwide, in addition to fostering public-private partnerships between Fortune 500 companies, federal and state governments, and other business stakeholders.<br /><br />
+              I graduated from Johns Hopkins University with a B.S. in <a href="https://www.bme.jhu.edu/">Biomedical Engineering </a> and a M.S. in <a href="https://www.cs.jhu.edu/">Computer Science</a>. I am currently pursuing my M.B.A. from the <a href="https://www.gsb.stanford.edu/">Stanford Graduate School of Business</a> and an <a href="https://earth.stanford.edu/eiper">M.S. in Environment and Resources</a> from the <a href="https://sustainability.stanford.edu/">Stanford Graduate School of Sustainability</a>.
+              <!--
+              <p>A changing climate will be the greatest challenge in our lifetime. It will require significant investments from governments, businesses, and consumers alike, as well as massive changes in the technology we use and the choices we make. While this is a daunting challenge that will require fundamental shifts in our society, I am encouraged by the exciting, gamechanging innovations in the climate sector. Each of us has a role to play in the new world of climate -- I want to do my part as a climate tech investor and entrepreneur. Together, we can collectively make a difference.</p>
+              <ul class="actions">
+                <li><a href="#" class="button">Read More About My Thoughts</a></li>
+              </ul>
+            -->
+          </section>
 
-    <div id="third">
-      <div id="photo">
-        <a href="alldata.html">
-          <img src="alldata.png" alt="Full Data Visualization" style="width:1250px;">
-        </a>
-      </div>
-      <div id="text">
-        <p>We now take a look at the data across all relevant filters. This includes additional data points such as whether the hazard is expected to increase or decrease in intensity and frequency in the future. We can see that in general, most hazards are expected to increase in intensity or frequency, and often times both. In fact, 347 out of 407 hazards (85%) are expected to increase in intensity, with only 13 (3%) expected to decrease. Similarly, 296 hazards (73%) are expected to increase in frequency, with only 29 (7%) expected to decrease. There are 282 hazards (69%) that are expected to increase in both intensity and frequency, while only 9 (2%) expected to decrease in both intensity and frequency.</p>
-        <p>Virtually every hazard will be increasing and generally worldwide. Extreme heat, heavy precipitation, and urban flooding are projected to increase in almost every major city around the world. On the other hand, extreme cold is the only hazard that does not have any city expecting an increase, with three cities expecting no change and one expecting a decrease.</p>
-        <p>What is particularly alarming is for almost every city that currently face a "High" or "Medium High" magnitude, they are all expecting an increase in intensity, with only "Medium Low" and "Low" magnitude hazards largely even in terms of expected increase or decrease. This means many cities that are already facing particularly devastating climate hazards right now are expecting these hazards to get worse in the future, rather than better.</p>
-      </div>
-    </div>
+        <!-- Two -->
+          <!--
+          <section id="two">
+            <h2>Recent Work</h2>
+            <div class="row">
+              <article class="col-6 col-12-xsmall work-item">
+                <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
+                <h3>Magna sed consequat tempus</h3>
+                <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+              </article>
+              <article class="col-6 col-12-xsmall work-item">
+                <a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="" /></a>
+                <h3>Ultricies lacinia interdum</h3>
+                <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+              </article>
+              <article class="col-6 col-12-xsmall work-item">
+                <a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
+                <h3>Tortor metus commodo</h3>
+                <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+              </article>
+              <article class="col-6 col-12-xsmall work-item">
+                <a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
+                <h3>Quam neque phasellus</h3>
+                <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+              </article>
+              <article class="col-6 col-12-xsmall work-item">
+                <a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
+                <h3>Nunc enim commodo aliquet</h3>
+                <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+              </article>
+              <article class="col-6 col-12-xsmall work-item">
+                <a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
+                <h3>Risus ornare lacinia</h3>
+                <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+              </article>
+            </div>
+            <ul class="actions">
+              <li><a href="#" class="button">Full Portfolio</a></li>
+            </ul>
+          </section>
+          -->
 
-    <div id="data">
-      <div id="text">
-        <h2>Data and Sources</h2>
-        <p>All of the data and sources come from the CDP Open Data Portal, which collects survey data from thousands of cities, states, and regional governments on climate hazards. There have been some climate risk maps that have been built, but these have mostly been on a macro level or are done so using proprietary data (such as First Street Foundation’s climate maps). However, there hasn’t been one that’s been built out on a city level, such as the data provided by CDP (https://data.cdp.net/).</p>
-        <p>This data has been <a href="https://data.cdp.net/Climate-Hazards/2022-Cities-Climate-Hazards-by-Magnitude-of-Impact/s8kx-ja49">visualized previously</a> but not as extensively and geographically focused. When we first download the data, we find it is fairly messy, as each city provides its data in different ways and methods. This initial data set includes 26 columns with 3866 rows. Thus, a great deal of data cleaning had to be done, including formatting errors, removing incomplete or irrelevant data, and adding in external data on missing C40 cities. We focused on C40 cities only since C40 cities are the most relevant (they are roughly the 100 largest cities in the world) and are the most accurate (are most timely and complete with their data surveys). We also merged this with other data from other sources to form as complete a dataset as possible. This created a final dataset of roughly 10 columns and 2500 rows (100 cities across 23 types of hazards and 2 worst case scenario analyses).</p>
-        <p>I then conducted various ways of analyzing the information, including using Excel (e.g. VLOOKUP, filtering, etc.), Python (data cleaning and formatting), Tableau (initial visualizations for data analytics), and finally D3.js (data visualization).</p>
+        <!-- Three -->
+          <section id="three">
+            <h2>Get In Touch</h2>
+            <p>I'm always interested in hearing more about what you're working on, whether it's in climate or otherwise. Feel free to reach out with your ideas and let's see how I can help!</p>
+            <div class="row">
+              <div class="col-8 col-12-small">
+                <form method="post" action="#">
+                  <div class="row gtr-uniform gtr-50">
+                    <div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+                    <div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+                    <div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+                  </div>
+                </form>
+                <ul class="actions">
+                  <li><input type="submit" value="Send Message" /></li>
+                </ul>
+              </div>
+              <div class="col-4 col-12-small">
+                <ul class="labeled-icons">
+                  <!--
+                  <li>
+                    <h3 class="icon solid fa-home"><span class="label">Address</span></h3>
+                    1234 Somewhere Rd.<br />
+                    Nashville, TN 00000<br />
+                    United States
+                  </li>
+                  -->
+                  <li>
+                    <h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
+                    858-231-6769
+                  </li>
+                  <li>
+                    <h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+                    <a href="mailto: alwin@alwinhui.com">alwin@alwinhui.com</a>
+                  </li>
+                  <li>
+                    <h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+                    <a href="mailto: alwin@stanford.edu">alwin@stanford.edu</a>
+                  </li>
+                  <li>
+                    <h3 class="icon solid fa-link"><span class="label">Website</span></h3>
+                    <a href="alwin@alwinhui.com">alwinhui.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+        <!-- Four -->
+        <!--
+          <section id="four">
+            <h2>Elements</h2>
+
+            <section>
+              <h4>Text</h4>
+              <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+              This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+              This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+              <hr />
+              <header>
+                <h4>Heading with a Subtitle</h4>
+                <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+              </header>
+              <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+              <header>
+                <h5>Heading with a Subtitle</h5>
+                <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+              </header>
+              <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+              <hr />
+              <h2>Heading Level 2</h2>
+              <h3>Heading Level 3</h3>
+              <h4>Heading Level 4</h4>
+              <h5>Heading Level 5</h5>
+              <h6>Heading Level 6</h6>
+              <hr />
+              <h5>Blockquote</h5>
+              <blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+              <h5>Preformatted</h5>
+              <pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+print 'Iteration ' + i;
+deck.shuffle();
+i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+            </section>
+
+            <section>
+              <h4>Lists</h4>
+              <div class="row">
+                <div class="col-6 col-12-xsmall">
+                  <h5>Unordered</h5>
+                  <ul>
+                    <li>Dolor pulvinar etiam magna etiam.</li>
+                    <li>Sagittis adipiscing lorem eleifend.</li>
+                    <li>Felis enim feugiat dolore viverra.</li>
+                  </ul>
+                  <h5>Alternate</h5>
+                  <ul class="alt">
+                    <li>Dolor pulvinar etiam magna etiam.</li>
+                    <li>Sagittis adipiscing lorem eleifend.</li>
+                    <li>Felis enim feugiat dolore viverra.</li>
+                  </ul>
+                </div>
+                <div class="col-6 col-12-xsmall">
+                  <h5>Ordered</h5>
+                  <ol>
+                    <li>Dolor pulvinar etiam magna etiam.</li>
+                    <li>Etiam vel felis at lorem sed viverra.</li>
+                    <li>Felis enim feugiat dolore viverra.</li>
+                    <li>Dolor pulvinar etiam magna etiam.</li>
+                    <li>Etiam vel felis at lorem sed viverra.</li>
+                    <li>Felis enim feugiat dolore viverra.</li>
+                  </ol>
+                  <h5>Icons</h5>
+                  <ul class="icons">
+                    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                    <li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
+                  </ul>
+                </div>
+              </div>
+              <h5>Actions</h5>
+              <ul class="actions">
+                <li><a href="#" class="button primary">Default</a></li>
+                <li><a href="#" class="button">Default</a></li>
+              </ul>
+              <ul class="actions small">
+                <li><a href="#" class="button primary small">Small</a></li>
+                <li><a href="#" class="button small">Small</a></li>
+              </ul>
+              <div class="row">
+                <div class="col-6 col-12-small">
+                  <ul class="actions stacked">
+                    <li><a href="#" class="button primary">Default</a></li>
+                    <li><a href="#" class="button">Default</a></li>
+                  </ul>
+                </div>
+                <div class="col-6 col-12-small">
+                  <ul class="actions stacked">
+                    <li><a href="#" class="button primary small">Small</a></li>
+                    <li><a href="#" class="button small">Small</a></li>
+                  </ul>
+                </div>
+                <div class="col-6 col-12-small">
+                  <ul class="actions stacked">
+                    <li><a href="#" class="button primary fit">Default</a></li>
+                    <li><a href="#" class="button fit">Default</a></li>
+                  </ul>
+                </div>
+                <div class="col-6 col-12-small">
+                  <ul class="actions stacked">
+                    <li><a href="#" class="button primary small fit">Small</a></li>
+                    <li><a href="#" class="button small fit">Small</a></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h4>Table</h4>
+              <h5>Default</h5>
+              <div class="table-wrapper">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Item One</td>
+                      <td>Ante turpis integer aliquet porttitor.</td>
+                      <td>29.99</td>
+                    </tr>
+                    <tr>
+                      <td>Item Two</td>
+                      <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                      <td>19.99</td>
+                    </tr>
+                    <tr>
+                      <td>Item Three</td>
+                      <td> Morbi faucibus arcu accumsan lorem.</td>
+                      <td>29.99</td>
+                    </tr>
+                    <tr>
+                      <td>Item Four</td>
+                      <td>Vitae integer tempus condimentum.</td>
+                      <td>19.99</td>
+                    </tr>
+                    <tr>
+                      <td>Item Five</td>
+                      <td>Ante turpis integer aliquet porttitor.</td>
+                      <td>29.99</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="2"></td>
+                      <td>100.00</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+
+              <h5>Alternate</h5>
+              <div class="table-wrapper">
+                <table class="alt">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Item One</td>
+                      <td>Ante turpis integer aliquet porttitor.</td>
+                      <td>29.99</td>
+                    </tr>
+                    <tr>
+                      <td>Item Two</td>
+                      <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                      <td>19.99</td>
+                    </tr>
+                    <tr>
+                      <td>Item Three</td>
+                      <td> Morbi faucibus arcu accumsan lorem.</td>
+                      <td>29.99</td>
+                    </tr>
+                    <tr>
+                      <td>Item Four</td>
+                      <td>Vitae integer tempus condimentum.</td>
+                      <td>19.99</td>
+                    </tr>
+                    <tr>
+                      <td>Item Five</td>
+                      <td>Ante turpis integer aliquet porttitor.</td>
+                      <td>29.99</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="2"></td>
+                      <td>100.00</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </section>
+
+            <section>
+              <h4>Buttons</h4>
+              <ul class="actions">
+                <li><a href="#" class="button primary">Primary</a></li>
+                <li><a href="#" class="button">Default</a></li>
+              </ul>
+              <ul class="actions">
+                <li><a href="#" class="button large">Large</a></li>
+                <li><a href="#" class="button">Default</a></li>
+                <li><a href="#" class="button small">Small</a></li>
+              </ul>
+              <ul class="actions fit">
+                <li><a href="#" class="button primary fit">Fit</a></li>
+                <li><a href="#" class="button fit">Fit</a></li>
+              </ul>
+              <ul class="actions fit small">
+                <li><a href="#" class="button primary fit small">Fit + Small</a></li>
+                <li><a href="#" class="button fit small">Fit + Small</a></li>
+              </ul>
+              <ul class="actions">
+                <li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+                <li><a href="#" class="button icon solid fa-download">Icon</a></li>
+              </ul>
+              <ul class="actions">
+                <li><span class="button primary disabled">Primary</span></li>
+                <li><span class="button disabled">Default</span></li>
+              </ul>
+            </section>
+
+            <section>
+              <h4>Form</h4>
+              <form method="post" action="#">
+                <div class="row gtr-uniform gtr-50">
+                  <div class="col-6 col-12-xsmall">
+                    <input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+                  </div>
+                  <div class="col-6 col-12-xsmall">
+                    <input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+                  </div>
+                  <div class="col-12">
+                    <select name="demo-category" id="demo-category">
+                      <option value="">- Category -</option>
+                      <option value="1">Manufacturing</option>
+                      <option value="1">Shipping</option>
+                      <option value="1">Administration</option>
+                      <option value="1">Human Resources</option>
+                    </select>
+                  </div>
+                  <div class="col-4 col-12-small">
+                    <input type="radio" id="demo-priority-low" name="demo-priority" checked>
+                    <label for="demo-priority-low">Low Priority</label>
+                  </div>
+                  <div class="col-4 col-12-small">
+                    <input type="radio" id="demo-priority-normal" name="demo-priority">
+                    <label for="demo-priority-normal">Normal Priority</label>
+                  </div>
+                  <div class="col-4 col-12-small">
+                    <input type="radio" id="demo-priority-high" name="demo-priority">
+                    <label for="demo-priority-high">High Priority</label>
+                  </div>
+                  <div class="col-6 col-12-small">
+                    <input type="checkbox" id="demo-copy" name="demo-copy">
+                    <label for="demo-copy">Email me a copy of this message</label>
+                  </div>
+                  <div class="col-6 col-12-small">
+                    <input type="checkbox" id="demo-human" name="demo-human" checked>
+                    <label for="demo-human">I am a human and not a robot</label>
+                  </div>
+                  <div class="col-12">
+                    <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <ul class="actions">
+                      <li><input type="submit" value="Send Message" class="primary" /></li>
+                      <li><input type="reset" value="Reset" /></li>
+                    </ul>
+                  </div>
+                </div>
+              </form>
+            </section>
+
+            <section>
+              <h4>Image</h4>
+              <h5>Fit</h5>
+              <div class="box alt">
+                <div class="row gtr-50 gtr-uniform">
+                  <div class="col-12"><span class="image fit"><img src="images/fulls/05.jpg" alt="" /></span></div>
+                  <div class="col-4"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
+                  <div class="col-4"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
+                  <div class="col-4"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
+                  <div class="col-4"><span class="image fit"><img src="images/thumbs/04.jpg" alt="" /></span></div>
+                  <div class="col-4"><span class="image fit"><img src="images/thumbs/05.jpg" alt="" /></span></div>
+                  <div class="col-4"><span class="image fit"><img src="images/thumbs/06.jpg" alt="" /></span></div>
+                  <div class="col-4"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
+                  <div class="col-4"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
+                  <div class="col-4"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
+                </div>
+              </div>
+              <h5>Left &amp; Right</h5>
+              <p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+              <p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+            </section>
+
+          </section>
+        -->
+
       </div>
-    </div>
+
+    <!-- Footer -->
+      <footer id="footer">
+        <div class="inner">
+          <ul class="icons">
+            <li><a href="https://www.linkedin.com/in/alwin-hui" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <li><a href="resume.pdf" class="icon solid fa-file-alt"><span class="label">Resume</span></a></li>
+            <li><a href="https://github.com/ahui21" class="icon brands fa-github"><span class="label">Github</span></a></li>
+            <li><a href="mailto: alwin@alwinhui.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+          </ul>
+          <ul class="copyright">
+            <li>&copy; Alwin Hui</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+          </ul>
+        </div>
+      </footer>
+
+    <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.poptrox.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+
   </body>
 </html>
